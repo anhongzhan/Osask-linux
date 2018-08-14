@@ -1,0 +1,22 @@
+day3 Part2 
+P50-P21
+内容：试错－－软盘在读取的时候会可能会发生不能读数据的情况，所以需要进行多次读取
+
+!!warning!!:
+
+enrty部分增加一句call putloop 原书没有
+entry:
+	;程序主要部分
+	mov ax, 0
+	mov ss, ax
+	mov ds, ax
+	mov es, ax
+ 	mov sp, 0x7c00
+ 	mov si, msg
+
+	call putloop
+
+编译　
+1、make
+2、make run
+3、make clean

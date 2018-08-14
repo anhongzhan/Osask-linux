@@ -1,4 +1,5 @@
-;hello.nas
+;hello.asm
+cyls equ 10	;3.4添加　代表扇区
 	org 0x7c00;跳转到内存地址0x7c00处
  fat12:
 	;设定fat12格式
@@ -31,8 +32,7 @@
  	mov si, msg
 
 	call putloop
-
-;---------------------3.2添加部分
+;---------------------3.3添加部分
 ;读磁盘
 	mov ax,0x0820
 	mov es,ax
@@ -40,6 +40,9 @@
 	mov dh,0	;扇区0
 	mov cl,2	;扇区2
 	
+	;mov si,0	;记录失败次数的寄存器
+
+readloop:
 	mov si,0	;记录失败次数的寄存器
 
 retry:
@@ -48,7 +51,7 @@ retry:
 	mov bx,0
 	mov dl,0x00	;A驱动器
 	int 0x13	;调用磁盘bios
-	jnc fin		;没出错的话跳转到fin
+	jnc next	;没出错的话跳转到fin
 	add si,1
 	cmp si,5
 	jae error
@@ -56,22 +59,46 @@ retry:
 	mov dl,0x00
 	int 0x13
 	jmp retry
-;---------------------end 3.2添加部分
+
+next:
+	mov ax,es	;把内存地址后移0x200
+	add ax,0x0020	
+	mov es,ax	;因为没有add es,0x200指令，所以这里绕个弯
+	add cl,1	;往cl里加１
+	cmp cl,18	;比较cl与18
+	jbe readloop	;如果cl<=18,跳转至readloop
+;---------------------3.4 添加部分
+	mov cl,1	;一个软盘有80柱面　2个磁头　18扇区
+	add dh,1	;3.3里面我们比较读取了18个扇区
+	cmp dh,2	;3.4里面我们要读取十个柱面
+	jb readloop	;每个柱面包含18个扇区
+	mov dh,0
+	add ch,1
+	cmp ch,cyls
+	jb readloop
+;---------------------3.7添加部分
+	mov [0x0ff0],ch	;把cyls的值写到0x0ff0的地址中
+	jmp fin		;跳转
+;---------------------end 3.7添加部分
+;---------------------end 3.4添加部分
+;---------------------end 3.3添加部分
  putloop:
 	;循环显示字符
 	;通过0x10中断，显示一个字符
 	mov al, [si]
 	add si, 1
 	cmp al, 0
-	je fin
+	je  over
 	mov ah, 0x0e
 	mov bx, 10
 	int 0x10
 	jmp putloop
+ over:
+	ret
  fin:
 	;当需要显示的信息都显示完毕，那么进入死循环
-	hlt
-	jmp fin
+	;hlt
+	jmp 0xc400	;3.7修改，原来为　jmp fin
  msg:
 	;设定需要显示的字符
 	db 0x0a, 0x0a
@@ -89,7 +116,7 @@ retry:
 	db 0x0d
 	db 0
 
-;---------------------------------3.2添加部分
+;---------------------------------3.4添加部分
 error:
 	db 0x0a, 0x0a
 	db "-----------------------"
@@ -97,7 +124,7 @@ error:
 	db 0x0d
 	db "error"
 	db 0x0a, 0x0d
-;---------------------------------end 3.2添加部分
+;---------------------------------end 3.4添加部分
  endpart:
 	times 510-($-$$) db 0
 	db 0x55, 0xaa

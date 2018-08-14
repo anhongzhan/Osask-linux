@@ -1,0 +1,4 @@
+读取10个柱面
+make
+make run
+make clean

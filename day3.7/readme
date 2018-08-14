@@ -1,0 +1,16 @@
+day 3   part7
+确认操作系统的执行情况
+
+warning!!!!:
+
+3.7中helloos.asm作了如下修改
+１、next部分最后将cyls的值写到0x0ff0的地址中，然后跳转到fin
+２、fin部分修改为jmp 0xc400
+具体参考代码
+
+
+编译
+make
+sudo make copy
+make run
+make clean

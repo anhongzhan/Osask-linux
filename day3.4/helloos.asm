@@ -31,6 +31,7 @@ cyls equ 10	;3.4添加　代表扇区
  	mov sp, 0x7c00
  	mov si, msg
 
+	call putloop
 ;---------------------3.3添加部分
 ;读磁盘
 	mov ax,0x0820

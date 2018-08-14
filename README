@@ -1,0 +1,6 @@
+# Osask-linux
+《３０天自制操作系统》　ubuntu 16.04环境下的实现
+
+工具：gcc、make、qemu、bochs
+
+感谢：https://github.com/zchrissirhcz                                                  

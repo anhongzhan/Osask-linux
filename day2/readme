@@ -2,5 +2,6 @@
 代码功能：读取软盘的第一个扇区(512bytes)到内存0x7x00的地方
 
 编译：
-
-make && bochs
+1、make
+2、make run
+3、make clean
