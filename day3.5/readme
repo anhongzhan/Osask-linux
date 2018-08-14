@@ -1,0 +1,14 @@
+添加了harbote.asm，重写了Makefile,修改了bochsrc
+
+１、创建myos.img//使用bximage
+２、Makefile步骤
+	a、创建myos.img//使用bximage
+	b、编译harbote.asm  ->  harbote.bin
+	c、挂载myos.img//dd
+	d、复制harbote.bin到myos.img
+	e、卸载myos.img
+３、修改bochsrc
+	bochsrc里面的a.img改为myos.img即可
+
+编译　　　make && bochs
+
