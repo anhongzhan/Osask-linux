@@ -10,5 +10,7 @@
 ３、修改bochsrc
 	bochsrc里面的a.img改为myos.img即可
 
-编译　　　make && bochs
-
+编译　　　
+make 
+make copy
+make run
