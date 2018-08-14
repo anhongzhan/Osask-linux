@@ -9,7 +9,12 @@ Makefile步骤
 
 编译　　　
 make 
+<<<<<<< HEAD
 sudo make copy//注意sudo
 make run
 make clean
 
+=======
+make copy
+make run
+>>>>>>> aaa0e8a4d28c371ce321d9240dc267f78fa54c4a
