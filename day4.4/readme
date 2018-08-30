@@ -1,0 +1,11 @@
+day4 part 4
+挑战指针
+另外一种写法，参考main.c
+
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+

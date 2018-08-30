@@ -1,0 +1,14 @@
+day4 part 5
+色号设定
+首先在main.c中添加init_palette()设定调色板
+然后需要在header.h中声明init_palette并且用ectern的形式
+然后在screen.c中实现init_palette()即可
+其中screen中又添加了set_palette()，init_palette()会调用该函数
+
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+

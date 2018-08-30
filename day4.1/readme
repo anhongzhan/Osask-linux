@@ -1,0 +1,9 @@
+day4 part 1
+用Ｃ语言实现内存写入，实现白屏
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+

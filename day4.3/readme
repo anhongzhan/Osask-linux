@@ -1,0 +1,10 @@
+day4 part 3
+挑战指针
+
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+

@@ -1,0 +1,12 @@
+day4 part 2
+用Ｃ语言实现内存写入，条纹图案
+我们直接修改main.c中的bootmain即可
+
+其中 i & 0x0f是将所有i的高位置为零，这样0x00~0x01~0x02~.....~0x0f就会变成循环
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+
