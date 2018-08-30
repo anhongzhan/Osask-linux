@@ -1,0 +1,9 @@
+day 3   part9、10
+原书在windows下面实现操作系统，所使用的工具都是在linux下面进行改编过去的，所以我们添加kernel文件夹，里面的内容同样现在不需要理解
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+

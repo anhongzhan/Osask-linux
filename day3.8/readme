@@ -1,0 +1,11 @@
+day 3   part8
+32位模式前期准备
+
+本次运行结果和3.7相同
+
+
+编译
+make
+sudo make copy
+make run
+make clean
