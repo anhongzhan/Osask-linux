@@ -1,0 +1,12 @@
+day4 part 8
+进一步绘制矩形
+在4.7的基础上多增加一些细节，绘制出更加完备的矩形
+修改了main.c 和　header.h
+
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+
