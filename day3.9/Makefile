@@ -1,5 +1,6 @@
 subdir=./kernel
 all:
+#	nasm -o helloos helloos.asm
 	nasm -o helloos helloos.asm
 	@cd $(subdir);make clean;make addr=0xc400
 
@@ -17,4 +18,4 @@ copy:img
 run:
 	qemu-system-i386 -drive file=myos.img,if=floppy
 clean:
-	@rm -f bootloader myos.img haribote.bin
+	@rm -f helloos myos.img haribote.bin
