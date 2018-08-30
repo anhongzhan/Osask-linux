@@ -1,4 +1,4 @@
-day4 part 5
+day4 part 6
 色号设定
 首先在main.c中添加init_palette()设定调色板
 然后需要在header.h中声明init_palette并且用ectern的形式

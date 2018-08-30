@@ -1,0 +1,13 @@
+day4 part 7
+绘制矩形
+与4.6类似，首先在main.c中调用boxfill8()
+然后在header.h中用extern进行声明
+最后在screen.c中实现boxfill8()即可
+
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+
