@@ -1,0 +1,11 @@
+day5 part1
+接受启动信息
+修改了main.c
+
+
+编译
+make
+sudo make copy
+sudo make run
+make clean
+
